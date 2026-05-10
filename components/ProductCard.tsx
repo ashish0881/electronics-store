@@ -15,9 +15,12 @@ export default function ProductCard({ product }: ProductCardProps) {
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
       <Link href={`/product/${product.id}`}>
         <div className="relative w-full h-48 bg-gray-100">
-          <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-            <span className="text-sm">No Image</span>
-          </div>
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            className="object-cover"
+          />
           {product.featured && (
             <span className="absolute top-2 left-2 bg-primary-600 text-white text-xs px-2 py-1 rounded">
               Featured

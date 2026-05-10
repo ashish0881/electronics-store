@@ -3,6 +3,7 @@ import { getProductById } from '@/data/products'
 import ProductCard from '@/components/ProductCard'
 import { ShoppingCart, Heart, Share2 } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function ProductPage({ params }: { params: { id: string } }) {
   const product = getProductById(params.id)
@@ -29,8 +30,14 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
         {/* Product Image */}
-        <div className="bg-gray-100 rounded-lg h-96 flex items-center justify-center">
-          <span className="text-gray-400">Product Image</span>
+        <div className="bg-gray-100 rounded-lg overflow-hidden">
+          <Image
+            src={product.image}
+            alt={product.name}
+            width={400}
+            height={400}
+            className="w-full h-96 object-cover"
+          />
         </div>
 
         {/* Product Info */}
